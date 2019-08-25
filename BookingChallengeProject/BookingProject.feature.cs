@@ -104,6 +104,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I select the recommended for you filter of Sauna", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.Then("I find in the list the hotel name Limerick Strand Hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 16
+ testRunner.And("I close the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

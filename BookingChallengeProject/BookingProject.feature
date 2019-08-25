@@ -12,4 +12,5 @@ Scenario: Book hotel using filter is completed successfully
 		And I select only 1 room in this reservation
 	When The hotel search is completed
 	And I select the recommended for you filter of Sauna
-	Then I find in the list the hotel name Limerick Strand Hotel 
+	Then I find in the list the hotel name Limerick Strand Hotel
+	And I close the booking website
