@@ -1,6 +1,7 @@
 ﻿using Xunit;
+using Xunit.Extensions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
 using TechTalk.SpecFlow;
 
@@ -10,19 +11,22 @@ namespace BookingChallengeProject
     public class BookingProjectSteps
     {
         private IWebDriver _driver;
+        private string expectedSearchBoxTitle;
 
         [Given(@"I am in the booking website")]
         public void GivenIAmInTheBookingWebsite()
         {
-            _driver = new FirefoxDriver();
-            _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl("www.booking.com");
+            _driver = new ChromeDriver();
+            _driver.Navigate().GoToUrl("http://booking.com");
         }
         
         [Given(@"The booking page is successfully opened")]
         public void GivenTheBookingPageIsSuccessfullyOpened()
         {
-            //ScenarioContext.Current.Pending();
+            expectedSearchBoxTitle = "Find deals for any season";
+            IWebElement searchBoxTitle = _driver.FindElement(By.CssSelector(".sb-searchbox__title-text"));
+            string actualSearchBoxText = searchBoxTitle.Text;
+            Assert.Equal(expectedSearchBoxTitle, actualSearchBoxText);
         }
         
         [Given(@"I enter the location of the hotel")]
