@@ -17,6 +17,7 @@ These instructions explains the tools, extensions and packages used to develop t
 * MSTest.TestFramework
 * XUnit
 * Selenium.WebDriver
+* Seleniu.Support NuGet
 * SpecFlow
 ---
 
