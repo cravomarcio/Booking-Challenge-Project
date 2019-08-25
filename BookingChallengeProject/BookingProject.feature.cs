@@ -89,7 +89,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
  testRunner.Given("I am in the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-  testRunner.And("The booking page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("The booking page is successfully opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
   testRunner.And("I enter the location of the hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10

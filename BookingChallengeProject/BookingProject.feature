@@ -5,7 +5,7 @@
 
 Scenario: Book hotel using filter is completed successfully
 	Given I am in the booking website
-		And The booking page is opened
+		And The booking page is successfully opened
 		And I enter the location of the hotel
 		And I select the reservation dates
 		And I select the reservation for 2 people
