@@ -23,7 +23,7 @@ namespace BookingChallengeProject
         [Given(@"The booking page is successfully opened")]
         public void GivenTheBookingPageIsSuccessfullyOpened()
         {
-            expectedSearchBoxTitle = "Find deals for any season";
+            expectedSearchBoxTitle = "Search for your next trip";
             IWebElement searchBoxTitle = _driver.FindElement(By.CssSelector(".sb-searchbox__title-text"));
             string actualSearchBoxText = searchBoxTitle.Text;
             Assert.Equal(expectedSearchBoxTitle, actualSearchBoxText);
