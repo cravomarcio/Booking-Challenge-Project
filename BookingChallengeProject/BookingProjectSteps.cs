@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using Xunit.Extensions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
