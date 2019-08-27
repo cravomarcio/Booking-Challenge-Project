@@ -88,19 +88,28 @@ namespace BookingChallengeProject
         [When(@"The hotel search is completed")]
         public void WhenTheHotelSearchIsCompleted()
         {
-            //ScenarioContext.Current.Pending();
+            IWebElement searchButton = _driver.FindElement(By.CssSelector(".sb-searchbox__button"));
+            searchButton.Click();
+
+            IWebElement hotelList = _driver.FindElement(By.Id("hotellist_inner"));
+            Assert.True(hotelList.Displayed, "Hotel search list is not completed");
         }
 
         [When(@"I select the recommended for you filter of Sauna")]
         public void WhenISelectTheRecommendedForYouFilterOfSauna()
         {
-            //ScenarioContext.Current.Pending();
+            IWebElement filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'Sauna')]"));
+            Assert.True(filterSauna.Displayed, "Filter Sauna doesn't display." + " Expected: Sauna" + ",  Actual:" + filterSauna.Text);
+
+            filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'Sauna')]"));
+            filterSauna.Click();
         }
 
         [Then(@"I find in the list the hotel name Limerick Strand Hotel")]
         public void ThenIFindInTheListTheHotelNameLimerickStrandHotel()
         {
-            //ScenarioContext.Current.Pending();
+            IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'Limerick Strand Hotel')]"));
+            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: Limerick Strand Hotel" + ",  Actual:" + hotelName.Text);
         }
 
         [Then(@"I close the booking website")]
