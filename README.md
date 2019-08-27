@@ -1,5 +1,7 @@
 # Project Title
 
+Booking Challenge Project
+
 ## Getting Started
 
 These instructions explains the tools, extensions and packages used to develop this test project
@@ -10,15 +12,23 @@ These instructions explains the tools, extensions and packages used to develop t
 * Microsoft Visual C++ 2017
 ---
 
-### NuGet Packages
+### NuGet Solution - packages
 
 ---
 * MSTest.TestAdapter
 * MSTest.TestFramework
-* XUnit
+* Selenium.Chrome.WebDriver
+* Selenium.Firefox.WebDriver
+* Selenium.Support
 * Selenium.WebDriver
-* Seleniu.Support NuGet
 * SpecFlow
+* SpecFlow.Tools.MsBUild.Generation
+* SpecFlow.xUnit
+* xunit
+* xunit.abstrations
+* xunit.core
+* xunit.extensibility.core
+* xunit.runner.visualstudio
 ---
 
 ### Extensions and Updates
@@ -26,6 +36,12 @@ These instructions explains the tools, extensions and packages used to develop t
 ---
 * GitHub Extension for Visual Studio
 * SpecFlow for Visual Studio 2017
+---
+
+### Properties
+
+---
+Feature property - Custom tool blank
 ---
 
 ### Installing
@@ -36,7 +52,7 @@ GitHub URL https://github.com/cravomarcio/Booking-Challenge-Project
 
 ## Running the tests
 
-The tests can be run from Visual Studio
+The tests from the feature in Visual Studio
 
 ### And coding style tests
 
@@ -56,4 +72,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## License
 
-This project is created by Marcio Moreira part of the selection process for an automation softeare tester engineer.
+This project is created by Marcio Moreira part of the selection process for an automation software tester engineer.
