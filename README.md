@@ -38,6 +38,12 @@ These instructions explains the tools, extensions and packages used to develop t
 * SpecFlow for Visual Studio 2017
 ---
 
+### Properties
+
+---
+Feature property - Custom tool blank
+---
+
 ### Installing
 
 ```
@@ -46,7 +52,7 @@ GitHub URL https://github.com/cravomarcio/Booking-Challenge-Project
 
 ## Running the tests
 
-The tests can be run from Visual Studio
+The tests from the feature in Visual Studio
 
 ### And coding style tests
 
