@@ -73,18 +73,6 @@ namespace BookingChallengeProject
             }
         }
 
-        [Given(@"I select the reservation for (.*) people")]
-        public void GivenISelectTheReservationForPeople(int p0)
-        {
-            //ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"I select only (.*) room in this reservation")]
-        public void GivenISelectOnlyRoomInThisReservation(int p0)
-        {
-            //ScenarioContext.Current.Pending();
-        }
-
         [When(@"The hotel search is completed")]
         public void WhenTheHotelSearchIsCompleted()
         {
@@ -98,6 +86,8 @@ namespace BookingChallengeProject
         [When(@"I select the recommended for you filter of Sauna")]
         public void WhenISelectTheRecommendedForYouFilterOfSauna()
         {
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
             IWebElement filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'Sauna')]"));
             Assert.True(filterSauna.Displayed, "Filter Sauna doesn't display." + " Expected: Sauna" + ",  Actual:" + filterSauna.Text);
 
@@ -108,9 +98,19 @@ namespace BookingChallengeProject
         [Then(@"I find in the list the hotel name Limerick Strand Hotel")]
         public void ThenIFindInTheListTheHotelNameLimerickStrandHotel()
         {
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
             IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'Limerick Strand Hotel')]"));
-            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: Limerick Strand Hotel" + ",  Actual:" + hotelName.Text);
+            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: Limerick Strand Hotel" + ",  Actual: " + hotelName.Text);
         }
+
+        [Then(@"I don't find in the list the hotel name George Limerick Hotel")]
+        public void ThenIDonTFindInTheListTheHotelNameGeorgeLimerickHotel()
+        {
+            IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'George Limerick Hotel')]"));
+            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: George Limerick Hotel" + ",  Actual: " + hotelName.Text);
+        }
+
 
         [Then(@"I close the booking website")]
         public void ThenICloseTheBookingWebsite()
