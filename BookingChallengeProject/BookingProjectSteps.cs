@@ -34,11 +34,12 @@ namespace BookingChallengeProject
             Assert.Equal(expectedSearchFieldTip, actualSearchFieldTip);
         }
 
-        [Given(@"I enter the location of the hotel")]
-        public void GivenIEnterTheLocationOfTheHotel()
+
+        [Given(@"I enter the (.*) of the hotel")]
+        public void GivenIEnterTheOfTheHotel(string hotel)
         {
             IWebElement searchArgument = _driver.FindElement(By.Id("ss"));
-            searchArgument.SendKeys("Limerick County, Irlanda");
+            searchArgument.SendKeys(hotel);
         }
 
         [Given(@"I select the reservation dates")]
@@ -83,34 +84,33 @@ namespace BookingChallengeProject
             Assert.True(hotelList.Displayed, "Hotel search list is not completed");
         }
 
-        [When(@"I select the recommended for you filter of Sauna")]
-        public void WhenISelectTheRecommendedForYouFilterOfSauna()
+        [When(@"I select the recommended for you filter of (.*)")]
+        public void WhenISelectTheRecommendedForYouFilterOf(string sauna)
         {
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-            IWebElement filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'Sauna')]"));
-            Assert.True(filterSauna.Displayed, "Filter Sauna doesn't display." + " Expected: Sauna" + ",  Actual:" + filterSauna.Text);
+            IWebElement filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),@sauna)]"));
+            Assert.True(filterSauna.Displayed, "Filter Sauna doesn't display." + " Expected: " + sauna + ",  Actual: " + filterSauna.Text);
 
-            filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'Sauna')]"));
+            filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),@sauna)]"));
             filterSauna.Click();
         }
 
-        [Then(@"I find in the list the hotel name Limerick Strand Hotel")]
-        public void ThenIFindInTheListTheHotelNameLimerickStrandHotel()
+        [Then(@"I find in the list the hotel name (.*)")]
+        public void ThenIFindInTheListTheHotelName(string hotel)
         {
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-            IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'Limerick Strand Hotel')]"));
-            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: Limerick Strand Hotel" + ",  Actual: " + hotelName.Text);
+            IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),@hotel)]"));
+            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: " + hotel  + ",  Actual: " + hotelName.Text);
         }
 
-        [Then(@"I don't find in the list the hotel name George Limerick Hotel")]
-        public void ThenIDonTFindInTheListTheHotelNameGeorgeLimerickHotel()
+        [Then(@"I don't find in the list the hotel name (.*)")]
+        public void ThenIDonTFindInTheListTheHotelName(string hotel)
         {
-            IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'George Limerick Hotel')]"));
-            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: George Limerick Hotel" + ",  Actual: " + hotelName.Text);
+            IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),@hotel)]"));
+            Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: " + hotel + ",  Actual: " + hotelName.Text);
         }
-
 
         [Then(@"I close the booking website")]
         public void ThenICloseTheBookingWebsite()

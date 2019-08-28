@@ -91,7 +91,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
   testRunner.And("The booking page is successfully opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
-  testRunner.And("I enter the location of the hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I enter the Limerick County, Irlanda of the hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
   testRunner.And("I select the reservation dates", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
@@ -99,7 +99,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.And("I select the recommended for you filter of Sauna", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.Then("I find in the list the hotel name Limerick Strand Hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I find in the list the hotel name Limerick County, Irlanda", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 14
  testRunner.And("I close the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -120,7 +120,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 18
   testRunner.And("The booking page is successfully opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
-  testRunner.And("I enter the location of the hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I enter the Limerick County, Irlanda of the hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
   testRunner.And("I select the reservation dates", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
