@@ -77,12 +77,12 @@ namespace BookingChallengeProject
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Book hotel using filter is completed successfully")]
+        [Xunit.FactAttribute(DisplayName="Find a hotel using a filter")]
         [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
-        [Xunit.TraitAttribute("Description", "Book hotel using filter is completed successfully")]
-        public virtual void BookHotelUsingFilterIsCompletedSuccessfully()
+        [Xunit.TraitAttribute("Description", "Find a hotel using a filter")]
+        public virtual void FindAHotelUsingAFilter()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Book hotel using filter is completed successfully", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel using a filter", null, ((string[])(null)));
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -106,12 +106,12 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Book hotel using filter is not completed successfully")]
+        [Xunit.FactAttribute(DisplayName="Don\'t find a hotel using a filter")]
         [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
-        [Xunit.TraitAttribute("Description", "Book hotel using filter is not completed successfully")]
-        public virtual void BookHotelUsingFilterIsNotCompletedSuccessfully()
+        [Xunit.TraitAttribute("Description", "Don\'t find a hotel using a filter")]
+        public virtual void DontFindAHotelUsingAFilter()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Book hotel using filter is not completed successfully", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Don\'t find a hotel using a filter", null, ((string[])(null)));
 #line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
