@@ -28,7 +28,8 @@ namespace BookingChallengeProject
     [Given(@"The booking page is successfully opened")]
     public void GivenTheBookingPageIsSuccessfullyOpened()
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.CssSelector(".sb-searchbox__button")));
 
@@ -42,13 +43,10 @@ namespace BookingChallengeProject
     [Given(@"I enter the (.*) of the hotel")]
     public void GivenIEnterTheOfTheHotel(string hotel)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-      OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
-      wait.Until(x => x.FindElement(By.Id("ss")));
-
       IWebElement searchArgument = _driver.FindElement(By.Id("ss"));
       searchArgument.SendKeys(hotel);
+      searchArgument.SendKeys(Keys.Down);
+      searchArgument.SendKeys(Keys.Tab);
     }
 
     [Given(@"I select the reservation dates")]
@@ -59,13 +57,13 @@ namespace BookingChallengeProject
       //string reservationDay = todaysDatePlus3Months.Day.ToString();
       string reservationDate = todaysDatePlus3Months.Date.ToString("yyyy-mm-dd");
 
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
 
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.CssSelector(".sb-date-field.b-datepicker")));
 
-      IWebElement checkInDate = _driver.FindElement(By.CssSelector(".sb-date-field.b-datepicker"));
-      checkInDate.Click();
+      //IWebElement checkInDate = _driver.FindElement(By.CssSelector(".sb-date-field.b-datepicker"));
+      //checkInDate.Click();
 
       System.Collections.Generic.IList<IWebElement> calendarMonths = _driver.FindElements(By.CssSelector(".bui-calendar__month"));
       foreach (IWebElement month in calendarMonths)
@@ -101,16 +99,13 @@ namespace BookingChallengeProject
     [When(@"The hotel search is completed")]
     public void WhenTheHotelSearchIsCompleted()
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-      OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
-      wait.Until(x => x.FindElement(By.CssSelector(".sb-searchbox__button")));
 
       IWebElement searchButton = _driver.FindElement(By.CssSelector(".sb-searchbox__button"));
       searchButton.Click();
 
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
 
+      OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.Id("hotellist_inner")));
 
       IWebElement hotelList = _driver.FindElement(By.Id("hotellist_inner"));
