@@ -43,8 +43,10 @@ namespace BookingChallengeProject
     public void GivenIEnterTheOfTheHotel(string hotel)
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.Id("ss")));
+
       IWebElement searchArgument = _driver.FindElement(By.Id("ss"));
       searchArgument.SendKeys(hotel);
     }
@@ -54,11 +56,14 @@ namespace BookingChallengeProject
     {
       DateTime todaysDatePlus3Months = DateTime.Now.Date.AddMonths(+3);
       string reservationMonth = todaysDatePlus3Months.ToString("MMMM");
-      string reservationDay = todaysDatePlus3Months.Day.ToString();
+      //string reservationDay = todaysDatePlus3Months.Day.ToString();
+      string reservationDate = todaysDatePlus3Months.Date.ToString("yyyy-mm-dd");
 
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.CssSelector(".sb-date-field.b-datepicker")));
+
       IWebElement checkInDate = _driver.FindElement(By.CssSelector(".sb-date-field.b-datepicker"));
       checkInDate.Click();
 
@@ -68,8 +73,10 @@ namespace BookingChallengeProject
         if (month.Text != reservationMonth)
         {
           _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
           wait.Until(x => x.FindElement(By.CssSelector(".bui-calendar__control.bui-calendar__control--next")));
           IWebElement calenderBoxNext = _driver.FindElement(By.CssSelector(".bui-calendar__control.bui-calendar__control--next"));
+
           calenderBoxNext.Click();
           break;
         }
@@ -83,7 +90,7 @@ namespace BookingChallengeProject
         System.Collections.Generic.IList<IWebElement> cells = row.FindElements(By.TagName("td"));
         foreach (IWebElement cell in cells)
         {
-          if (cell.Text.Equals(reservationDay))
+          if (cell.Text.Equals(reservationDate))
           {
             cell.FindElement(By.CssSelector(".warning_content")).Click();
           }
@@ -95,13 +102,17 @@ namespace BookingChallengeProject
     public void WhenTheHotelSearchIsCompleted()
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.CssSelector(".sb-searchbox__button")));
+
       IWebElement searchButton = _driver.FindElement(By.CssSelector(".sb-searchbox__button"));
       searchButton.Click();
 
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
       wait.Until(x => x.FindElement(By.Id("hotellist_inner")));
+
       IWebElement hotelList = _driver.FindElement(By.Id("hotellist_inner"));
       Assert.True(hotelList.Displayed, "Hotel search list is not completed");
     }
@@ -112,7 +123,9 @@ namespace BookingChallengeProject
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'" + sauna + "')]")));
+
       IWebElement filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'" + sauna + "')]"));
+
       Assert.True(filterSauna.Displayed, "Filter Sauna doesn't display." + " Expected: " + sauna + ",  Actual: " + filterSauna.Text);
       filterSauna = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'" + sauna + "')]"));
       filterSauna.Click();
@@ -122,8 +135,11 @@ namespace BookingChallengeProject
     public void ThenIFindInTheListTheHotelName(string hotel)
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'" + hotel + "')]")));
+
+
       IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'" + hotel + "')]"));
       Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: " + hotel + ",  Actual: " + hotelName.Text);
     }
@@ -132,8 +148,10 @@ namespace BookingChallengeProject
     public void ThenIDonTFindInTheListTheHotelName(string hotel)
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
       OpenQA.Selenium.Support.UI.WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
       wait.Until(x => x.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'" + hotel + "')]")));
+
       IWebElement hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'" + hotel + "')]"));
       Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: " + hotel + ",  Actual: " + hotelName.Text);
     }
