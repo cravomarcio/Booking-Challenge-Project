@@ -41,8 +41,8 @@ namespace BookingChallengeProject
       Assert.NotNull(searchButton.Text);
     }
 
-    [Given(@"I enter the (.*) hotel")]
-    public void GivenIEnterTheOfTheHotel(string hotel)
+    [Given(@"I enter location (.*)")]
+    public void GivenIEnterLocationLimerickCountyIrlanda(string hotel)
     {
       _driver.FindElement(By.Id("ss")).SendKeys(hotel);
     }
@@ -50,23 +50,23 @@ namespace BookingChallengeProject
     [Given(@"I want to open checkin calendar")]
     public void GivenISelectTheReservationDates()
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-      _driver.FindElement(By.CssSelector(".sb-date-field.b-datepicker")).Click();
+      //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+      _driver.FindElement(By.CssSelector(".xp__dates-inner.xp__dates__checkin")).Click();
     }
 
     [Given(@"I want to go to the next months")]
     public void GivenIWantToEnterTheReservationDate()
     {
-      string reservationMonth = todaysDatePlus3Months.ToString("MMMM");
 
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
 
-      _driver.FindElement(By.CssSelector((".bui-calendar__control .bui-calendar__control--next"))).Click();
+      _driver.FindElement(By.CssSelector(".bui-calendar__control.bui-calendar__control--next")).Click();
     }
 
     [Given(@"I want to select the day of my reservation")]
     public void GivenIWantToSelectTheDayOfMyReservation()
     {
+      string reservationMonth = todaysDatePlus3Months.ToString("MMMM");
       string reservationDay = todaysDatePlus3Months.Day.ToString();
       string reservationDate = todaysDatePlus3Months.Date.ToString("yyyy-MM-dd");
      _driver.FindElement(By.XPath("//div[@class='bui-calendar__wrapper']/table/tbody/tr/td[contains(text(), '" + reservationDay + "')]")).Click();
@@ -81,24 +81,26 @@ namespace BookingChallengeProject
     [When(@"My search is completed")]
     public void WhenMySearchIsCompleted()
     {
-      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
 
       var hotelList = _driver.FindElement(By.Id("hotellist_inner"));
       Assert.True(hotelList.Displayed, "Hotel search list is not completed");
     }
 
     [When(@"I select the recommended for you filter of (.*)")]
-    public void WhenISelectTheRecommendedForYouFilterOf(string sauna)
+    public void WhenISelectTheRecommendedForYouFilterOf(string filter)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+     // _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
 
-      _driver.FindElement(By.XPath("//span[contains(@class,'filter_label')][contains(text(),'" + sauna + "')]")).Click();
+      //var checkBoxFilter = _driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text(),'" + filter + "')]"));
+
+      //_driver.FindElement(By.XPath("//div[@class='bui-bui-checkbox__label filter_item css-checkbox']/span[contains(@class,'filter_label')][contains(text(),'" + filter + "')]")).Click();
     }
 
     [Then(@"I find the hotel with the name (.*)")]
     public void ThenIFindInTheListTheHotelName(string hotel)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
 
       var hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'" + hotel + "')]"));
 
@@ -110,9 +112,9 @@ namespace BookingChallengeProject
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-      var hotelName = _driver.FindElement(By.XPath("//span[contains(@class,'sr-hotel__name')][contains(text(),'" + hotel + "')]"));
+      var AllHotelsListResults = _driver.FindElement(By.CssSelector(".hotellist.sr_double_search ")).Text.ToString();
 
-      Assert.True(hotelName.Displayed, "Hotel Name doesn't display." + " Expected: " + hotel + ",  Actual: " + hotelName.Text);
+      Assert.Contains(hotel.Trim().ToLower(), AllHotelsListResults.Trim().ToLower());
     }
 
     [Then(@"I close the booking website")]

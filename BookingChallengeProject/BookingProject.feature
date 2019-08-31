@@ -6,7 +6,7 @@
 Scenario: Find a hotel using a filter
 	Given I am in the booking website
 		And The booking page is successfully opened
-		And I enter the Limerick County, Irlanda hotel
+		And I enter location Limerick County, Irlanda
 		And I want to open checkin calendar
 		And I want to go to the next months
 		And I want to select the day of my reservation
@@ -19,7 +19,7 @@ Scenario: Find a hotel using a filter
 Scenario: Don't find a hotel using a filter
 	Given I am in the booking website
 		And The booking page is successfully opened
-		And I enter the Limerick County, Irlanda of the hotel
+		And I enter location Limerick County, Irlanda
 		And I want to open checkin calendar
 		And I want to go to the next months
 		And I want to select the day of my reservation
