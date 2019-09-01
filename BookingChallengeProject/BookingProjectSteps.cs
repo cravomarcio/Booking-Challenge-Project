@@ -89,8 +89,9 @@ namespace BookingChallengeProject
     [When(@"I select the recommended for you filter of Sauna")]
     public void WhenISelectTheRecommendedForYouFilterOfSauna()
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
-      _driver.FindElement(By.XPath("//div[id$='filter_popular_activities']/a[5]")).Click();
+     // _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
+      //IWebElement filterSauna = _driver.FindElement(By.Id("popular_activities-10"));
+      //filterSauna.Click();
 
       //_loadBookingPage.SelectFilterSauna();
     }
@@ -98,8 +99,8 @@ namespace BookingChallengeProject
     [When(@"I select the recommended for you filter of 5-Stars")]
     public void WhenISelectTheRecommendedForYouFilterOfStars()
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
-      _driver.FindElement(By.XPath("//div[id$='popular_activities-10']")).Click();
+      //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(930);
+      //_driver.FindElement(By.Id("class-5")).Click();
       //_loadBookingPage.SelectFilter5Stars();
     }
 
