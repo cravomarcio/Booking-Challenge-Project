@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 27
  testRunner.And("My search is completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
- testRunner.And("I select the recommended for you filter of Sauna", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I select the recommended for you filter of 5-Stars", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
  testRunner.Then("I don\'t find the hotel I want with the name George Limerick Hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 30

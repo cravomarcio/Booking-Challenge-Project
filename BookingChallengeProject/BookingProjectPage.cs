@@ -46,9 +46,14 @@ namespace BookingChallengeProject
       _driver.FindElement(By.XPath("//div[@class='bui-calendar__wrapper']/table/tbody/tr/td[contains(text()," + reservationDay + ")]")).Click();
     }
 
-    public void SelectFilter(string filter)
+    public void SelectFilterSauna()
     {
-        _driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text()," + filter + ")]")).Click();
+      _driver.FindElement(By.XPath("//div[@class='filteroptions']/a[3]")).Click();
+    }
+
+    public void SelectFilter5Stars()
+    {
+
     }
 
     public bool BookingPageDisplayed =>

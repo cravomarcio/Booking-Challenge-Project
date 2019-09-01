@@ -86,12 +86,21 @@ namespace BookingChallengeProject
       _bookingConfirmation = _loadBookingPage.SearchApplication();
     }
 
-    [When(@"I select the recommended for you filter of (.*)")]
-    public void WhenISelectTheRecommendedForYouFilterOf(string filter)
+    [When(@"I select the recommended for you filter of Sauna")]
+    public void WhenISelectTheRecommendedForYouFilterOfSauna()
     {
-      //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
-      //_driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text(),'" + filter + "')]")).Click();
-      //_loadBookingPage.SelectFilter(filter);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
+      _driver.FindElement(By.XPath("//div[id$='filter_popular_activities']/a[5]")).Click();
+
+      //_loadBookingPage.SelectFilterSauna();
+    }
+
+    [When(@"I select the recommended for you filter of 5-Stars")]
+    public void WhenISelectTheRecommendedForYouFilterOfStars()
+    {
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
+      _driver.FindElement(By.XPath("//div[id$='popular_activities-10']")).Click();
+      //_loadBookingPage.SelectFilter5Stars();
     }
 
     [When(@"My search is completed")]

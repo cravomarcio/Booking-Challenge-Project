@@ -25,6 +25,6 @@ Scenario: Don't find a hotel using a filter
 		And I want to select the day of my reservation
 	When I search the hotel with my reservation date
 	And My search is completed
-	And I select the recommended for you filter of Sauna
+	And I select the recommended for you filter of 5-Stars
 	Then I don't find the hotel I want with the name George Limerick Hotel
 	And I close the booking website
