@@ -51,8 +51,14 @@ namespace BookingChallengeProject
         _driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text()," + filter + ")]")).Click();
     }
 
-    public bool HotelResultsDisplayed =>
+    public bool BookingPageDisplayed =>
+      _driver.FindElement(By.CssSelector(".sb-searchbox__button")).Displayed.Equals(true);
+
+    public bool SearchCompleteDisplayed =>
       _driver.FindElement(By.Id("search_results_table")).Displayed.Equals(true);
+
+    public string HotelResultsDisplayed =>
+      _driver.FindElement(By.Id("search_results_table")).Text.ToString();
 
     public BookingConfirmationPage SearchApplication()
     {

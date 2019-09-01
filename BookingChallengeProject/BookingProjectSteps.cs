@@ -39,7 +39,7 @@ namespace BookingChallengeProject
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
       //_driver.FindElement(By.CssSelector(".sb-searchbox__button")).Displayed.Equals(true);
-      Assert.True(_loadBookingPage.HotelResultsDisplayed);
+      Assert.True(_loadBookingPage.BookingPageDisplayed, "Booking page doesn't dislays.");
     }
 
     [Given(@"I enter location (.*)")]
@@ -100,16 +100,16 @@ namespace BookingChallengeProject
       _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(90);
       //Boolean hotelResultsDisplays = _driver.FindElement(By.Id("search_results_table")).Displayed.Equals(true);
       //Assert.True(_loadBookingPage., "Hotel search list is not completed");
-      Assert.True(_loadBookingPage.HotelResultsDisplayed);
+      Assert.True(_loadBookingPage.SearchCompleteDisplayed, "Search is not completed.");
     }
 
     [Then(@"I find the hotel with the name (.*)")]
     public void ThenIFindInTheListTheHotelName(string hotel)
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
-      //string AllHotelsListResults = _driver.FindElement(By.CssSelector(".search_results_table")).Text.ToString();
-      //Assert.Contains(hotel.Trim().ToLower(), AllHotelsListResults.Trim().ToLower());
-      Assert.Contains(hotel.Trim().ToLower(), _bookingConfirmation.HotelResults.Trim().ToLower());
+      var AllHotelsListResults = _driver.FindElement(By.Id("hotellist_inner")).Text.ToString();
+      Assert.Contains(hotel, AllHotelsListResults);
+      //Assert.Contains(hotel, _bookingConfirmation.HotelResults);
     }
 
     [Then(@"I don't find the hotel I want with the name (.*)")]
@@ -118,7 +118,7 @@ namespace BookingChallengeProject
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
       //string AllHotelsListResults = _driver.FindElement(By.CssSelector(".search_results_table")).Text.ToString();
       //Assert.DoesNotContain(hotel.Trim().ToLower(), AllHotelsListResults.Trim().ToLower());
-      Assert.DoesNotContain(hotel.Trim().ToLower(), _bookingConfirmation.HotelResults.Trim().ToLower());
+      Assert.DoesNotContain(hotel, _bookingConfirmation.HotelResults);
     }
 
     [Then(@"I close the booking website")]

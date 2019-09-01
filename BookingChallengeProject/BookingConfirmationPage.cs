@@ -16,6 +16,7 @@ namespace BookingChallengeProject
       _driver = driver;
     }
 
-    public string HotelResults => _driver.FindElement(By.CssSelector(".search_results_table")).Text.ToString();
+    public string HotelResults =>
+      _driver.FindElement(By.Id("hotellist_inner")).Text.ToString();
   }
 }

@@ -13,7 +13,7 @@ Scenario: Find a hotel using a filter
 	When I search the hotel with my reservation date
 	And My search is completed
 	And I select the recommended for you filter of Sauna
-	Then I find the hotel with the name Limerick County, Irlanda
+	Then I find the hotel with the name Limerick Strand Hotel
 	And I close the booking website
 
 Scenario: Don't find a hotel using a filter
