@@ -91,6 +91,7 @@ namespace BookingChallengeProject
     {
       //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
       //_driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text(),'" + filter + "')]")).Click();
+      //_loadBookingPage.SelectFilter(filter);
     }
 
     [When(@"My search is completed")]

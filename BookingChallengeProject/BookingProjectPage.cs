@@ -46,12 +46,9 @@ namespace BookingChallengeProject
       _driver.FindElement(By.XPath("//div[@class='bui-calendar__wrapper']/table/tbody/tr/td[contains(text()," + reservationDay + ")]")).Click();
     }
 
-    public string SelectFilter
+    public void SelectFilter(string filter)
     {
-      set
-      {
-        _driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text(),'" + value + "')]"));
-      }
+        _driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text()," + filter + ")]")).Click();
     }
 
     public bool HotelResultsDisplayed =>
