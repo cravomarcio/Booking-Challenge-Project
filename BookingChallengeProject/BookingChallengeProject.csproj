@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingConfirmationPage.cs" />
     <Compile Include="BookingProjectPage.cs" />
     <Compile Include="BookingProjectSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -20,10 +20,10 @@ namespace BookingChallengeProject
     public static LoadBookingPage NavigateTo(IWebDriver driver)
     {
       driver.Navigate().GoToUrl(PageUri);
-
       return new LoadBookingPage(driver);
     }
-    public string Location
+
+    public string EnterHotelLocationLocation
     {
       set
       {
@@ -31,12 +31,37 @@ namespace BookingChallengeProject
       }
     }
 
-    public string Filter
+    public void SelectCalendar()
+    {
+      _driver.FindElement(By.CssSelector(".xp__dates-inner.xp__dates__checkin")).Click();
+    }
+
+    public void SelectNextMonthsInCalendar()
+    {
+      _driver.FindElement(By.CssSelector(".bui-calendar__control.bui-calendar__control--next")).Click();
+    }
+
+    public void SelectDayInCalendar(string reservationDay)
+    {
+      _driver.FindElement(By.XPath("//div[@class='bui-calendar__wrapper']/table/tbody/tr/td[contains(text()," + reservationDay + ")]")).Click();
+    }
+
+    public string SelectFilter
     {
       set
       {
-        _driver.FindElement(By.CssSelector(".sb-date-field.b-datepicker")).SendKeys(value);
+        _driver.FindElement(By.XPath("//span[contains(@class,'filter_label ')][contains(text(),'" + value + "')]"));
       }
+    }
+
+    public bool HotelResultsDisplayed =>
+      _driver.FindElement(By.Id("search_results_table")).Displayed.Equals(true);
+
+    public BookingConfirmationPage SearchApplication()
+    {
+      _driver.FindElement(By.CssSelector(".sb-searchbox__button")).Click();
+
+      return new BookingConfirmationPage(_driver);
     }
 
   }
