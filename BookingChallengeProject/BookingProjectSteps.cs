@@ -6,7 +6,7 @@ using System.Globalization;
 using Xunit;
 using Xunit.Extensions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Support.PageObjects;
@@ -27,7 +27,7 @@ namespace BookingChallengeProject
     [Given(@"I am in the booking website")]
     public void GivenIAmInTheBookingWebsite()
     {
-      _driver = new FirefoxDriver();
+      _driver = new ChromeDriver();
       _driver.Manage().Cookies.DeleteAllCookies();
 
       //_driver.Navigate().GoToUrl("http://booking.com");
@@ -73,7 +73,7 @@ namespace BookingChallengeProject
       string reservationDay = todaysDatePlus3Months.Day.ToString();
       string reservationDate = todaysDatePlus3Months.Date.ToString("yyyy-MM-dd");
 
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
       //_driver.FindElement(By.XPath("//div[@class='bui-calendar__wrapper']/table/tbody/tr/td[contains(text(), '" + reservationDay + "')]")).Click();
       _loadBookingPage.SelectDayInCalendar(reservationDay);
     }
@@ -89,10 +89,8 @@ namespace BookingChallengeProject
     [When(@"I select the recommended for you filter of Sauna")]
     public void WhenISelectTheRecommendedForYouFilterOfSauna()
     {
-     // _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
-      //IWebElement filterSauna = _driver.FindElement(By.Id("popular_activities-10"));
-      //filterSauna.Click();
-
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
+      //_driver.FindElement(By.XPath("//div[@class='bui-checkbox__label filter_item css-checkbox']/span[contains(text(), 'Sauna')]")).Click();
       //_loadBookingPage.SelectFilterSauna();
     }
 

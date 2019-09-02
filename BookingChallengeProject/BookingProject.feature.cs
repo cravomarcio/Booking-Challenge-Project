@@ -77,12 +77,12 @@ namespace BookingChallengeProject
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Find a hotel using a filter")]
+        [Xunit.FactAttribute(DisplayName="Find a hotel using filter sauna")]
         [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
-        [Xunit.TraitAttribute("Description", "Find a hotel using a filter")]
-        public virtual void FindAHotelUsingAFilter()
+        [Xunit.TraitAttribute("Description", "Find a hotel using filter sauna")]
+        public virtual void FindAHotelUsingFilterSauna()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel using a filter", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel using filter sauna", null, ((string[])(null)));
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -112,12 +112,12 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Don\'t find a hotel using a filter")]
+        [Xunit.FactAttribute(DisplayName="Attempt to find a hotel without sauna")]
         [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
-        [Xunit.TraitAttribute("Description", "Don\'t find a hotel using a filter")]
-        public virtual void DontFindAHotelUsingAFilter()
+        [Xunit.TraitAttribute("Description", "Attempt to find a hotel without sauna")]
+        public virtual void AttemptToFindAHotelWithoutSauna()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Don\'t find a hotel using a filter", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempt to find a hotel without sauna", null, ((string[])(null)));
 #line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -138,10 +138,80 @@ this.ScenarioInitialize(scenarioInfo);
 #line 27
  testRunner.And("My search is completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
- testRunner.And("I select the recommended for you filter of 5-Stars", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I select the recommended for you filter of Sauna", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
  testRunner.Then("I don\'t find the hotel I want with the name George Limerick Hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 30
+ testRunner.And("I close the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Attempt to find a hotel 5 stars")]
+        [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
+        [Xunit.TraitAttribute("Description", "Attempt to find a hotel 5 stars")]
+        public virtual void AttemptToFindAHotel5Stars()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempt to find a hotel 5 stars", null, ((string[])(null)));
+#line 32
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 33
+ testRunner.Given("I am in the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 34
+  testRunner.And("The booking page is successfully opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+  testRunner.And("I enter location Limerick County, Irlanda", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+  testRunner.And("I want to open checkin calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+  testRunner.And("I want to go to the next months", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+  testRunner.And("I want to select the day of my reservation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.When("I search the hotel with my reservation date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
+ testRunner.And("My search is completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.And("I select the recommended for you filter of 5-Stars", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.Then("I find the hotel with the name The Savoy Hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 43
+ testRunner.And("I close the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Find a hotel using a filter5 stars")]
+        [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
+        [Xunit.TraitAttribute("Description", "Find a hotel using a filter5 stars")]
+        public virtual void FindAHotelUsingAFilter5Stars()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel using a filter5 stars", null, ((string[])(null)));
+#line 45
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 46
+ testRunner.Given("I am in the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 47
+  testRunner.And("The booking page is successfully opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+  testRunner.And("I enter location Limerick County, Irlanda", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+  testRunner.And("I want to open checkin calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+  testRunner.And("I want to go to the next months", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+  testRunner.And("I want to select the day of my reservation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.When("I search the hotel with my reservation date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
+ testRunner.And("My search is completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.And("I select the recommended for you filter of 5-Stars", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.Then("I don\'t find the hotel I want with the name George Limerick Hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 56
  testRunner.And("I close the booking website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
