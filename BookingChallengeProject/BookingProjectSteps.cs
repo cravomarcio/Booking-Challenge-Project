@@ -89,23 +89,23 @@ namespace BookingChallengeProject
     [When(@"I select the recommended for you filter of Sauna")]
     public void WhenISelectTheRecommendedForYouFilterOfSauna()
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
-      //_driver.FindElement(By.XPath("//div[@class='bui-checkbox__label filter_item css-checkbox']/span[contains(text(), 'Sauna')]")).Click();
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(500);
+      _driver.FindElement(By.XPath("//DIV[@id='filter_popular_activities']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
       //_loadBookingPage.SelectFilterSauna();
     }
 
     [When(@"I select the recommended for you filter of 5-Stars")]
     public void WhenISelectTheRecommendedForYouFilterOfStars()
     {
-      //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(930);
-      //_driver.FindElement(By.Id("class-5")).Click();
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(500);
+      _driver.FindElement(By.XPath("//DIV[@id='filter_class']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
       //_loadBookingPage.SelectFilter5Stars();
     }
 
     [When(@"My search is completed")]
     public void WhenMySearchIsCompleted()
     {
-      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(90);
+      _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(300);
       //Boolean hotelResultsDisplays = _driver.FindElement(By.Id("search_results_table")).Displayed.Equals(true);
       //Assert.True(_loadBookingPage., "Hotel search list is not completed");
       Assert.True(_loadBookingPage.SearchCompleteDisplayed, "Search is not completed.");
@@ -114,19 +114,17 @@ namespace BookingChallengeProject
     [Then(@"I find the hotel with the name (.*)")]
     public void ThenIFindInTheListTheHotelName(string hotel)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       var AllHotelsListResults = _driver.FindElement(By.Id("hotellist_inner")).Text.ToString();
       Assert.Contains(hotel, AllHotelsListResults);
-      //Assert.Contains(hotel, _bookingConfirmation.HotelResults);
     }
 
     [Then(@"I don't find the hotel I want with the name (.*)")]
     public void ThenIDonTFindInTheListTheHotelName(string hotel)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
-      //string AllHotelsListResults = _driver.FindElement(By.CssSelector(".search_results_table")).Text.ToString();
-      //Assert.DoesNotContain(hotel.Trim().ToLower(), AllHotelsListResults.Trim().ToLower());
-      Assert.DoesNotContain(hotel, _bookingConfirmation.HotelResults);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      var AllHotelsListResults = _driver.FindElement(By.Id("hotellist_inner")).Text.ToString();
+      Assert.DoesNotContain(hotel, AllHotelsListResults);
     }
 
     [Then(@"I close the booking website")]

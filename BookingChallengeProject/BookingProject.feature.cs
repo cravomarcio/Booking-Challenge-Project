@@ -147,12 +147,12 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Attempt to find a hotel 5 stars")]
+        [Xunit.FactAttribute(DisplayName="Find a hotel 5 stars")]
         [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
-        [Xunit.TraitAttribute("Description", "Attempt to find a hotel 5 stars")]
-        public virtual void AttemptToFindAHotel5Stars()
+        [Xunit.TraitAttribute("Description", "Find a hotel 5 stars")]
+        public virtual void FindAHotel5Stars()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempt to find a hotel 5 stars", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel 5 stars", null, ((string[])(null)));
 #line 32
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -182,12 +182,12 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Find a hotel using a filter5 stars")]
+        [Xunit.FactAttribute(DisplayName="Find a hotel using a filter 5 stars")]
         [Xunit.TraitAttribute("FeatureTitle", "BookingProject")]
-        [Xunit.TraitAttribute("Description", "Find a hotel using a filter5 stars")]
+        [Xunit.TraitAttribute("Description", "Find a hotel using a filter 5 stars")]
         public virtual void FindAHotelUsingAFilter5Stars()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel using a filter5 stars", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find a hotel using a filter 5 stars", null, ((string[])(null)));
 #line 45
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
