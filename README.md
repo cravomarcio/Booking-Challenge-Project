@@ -44,7 +44,7 @@ These instructions explains the tools, extensions and packages used to develop t
 Feature property - Custom tool blank
 ---
 
-### Installing
+### GitHub full URL
 
 ```
 GitHub URL https://github.com/cravomarcio/Booking-Challenge-Project
