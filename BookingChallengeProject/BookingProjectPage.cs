@@ -48,12 +48,12 @@ namespace BookingChallengeProject
 
     public void SelectFilterSauna()
     {
-      _driver.FindElement(By.XPath("//div[@class='filteroptions']/a[3]")).Click();
+      _driver.FindElement(By.XPath("//DIV[@id='filter_popular_activities']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
     }
 
     public void SelectFilter5Stars()
     {
-
+      _driver.FindElement(By.XPath("//DIV[@id='filter_class']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
     }
 
     public bool BookingPageDisplayed =>

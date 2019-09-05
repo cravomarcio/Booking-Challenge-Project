@@ -90,16 +90,16 @@ namespace BookingChallengeProject
     public void WhenISelectTheRecommendedForYouFilterOfSauna()
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(500);
-      _driver.FindElement(By.XPath("//DIV[@id='filter_popular_activities']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
-      //_loadBookingPage.SelectFilterSauna();
+      //_driver.FindElement(By.XPath("//DIV[@id='filter_popular_activities']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
+      _loadBookingPage.SelectFilterSauna();
     }
 
     [When(@"I select the recommended for you filter of 5-Stars")]
     public void WhenISelectTheRecommendedForYouFilterOfStars()
     {
       _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(500);
-      _driver.FindElement(By.XPath("//DIV[@id='filter_class']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
-      //_loadBookingPage.SelectFilter5Stars();
+      //_driver.FindElement(By.XPath("//DIV[@id='filter_class']/DIV[@role='group'][1]/A[3]/LABEL[1]/DIV[1]")).Click();
+      _loadBookingPage.SelectFilter5Stars();
     }
 
     [When(@"My search is completed")]
@@ -114,7 +114,7 @@ namespace BookingChallengeProject
     [Then(@"I find the hotel with the name (.*)")]
     public void ThenIFindInTheListTheHotelName(string hotel)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
       var AllHotelsListResults = _driver.FindElement(By.Id("hotellist_inner")).Text.ToString();
       Assert.Contains(hotel, AllHotelsListResults);
     }
@@ -122,7 +122,7 @@ namespace BookingChallengeProject
     [Then(@"I don't find the hotel I want with the name (.*)")]
     public void ThenIDonTFindInTheListTheHotelName(string hotel)
     {
-      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
       var AllHotelsListResults = _driver.FindElement(By.Id("hotellist_inner")).Text.ToString();
       Assert.DoesNotContain(hotel, AllHotelsListResults);
     }
